@@ -47,8 +47,8 @@ def _send_react(chat_id, text, big=True, **kwargs):
     except Exception as e:
         print(f"[SEND_REACT] {e}")
 
-BOT_TOKEN = "8773966122:AAEpQhg6NDNemxdVHuDS5t_wfBuYO96YcU8"
-OWNER_ID = 8272317035
+BOT_TOKEN = "8618382187:AAEydJ5k3dBZT8QpXL1QcFc7tHHQjdQ44oU"
+OWNER_ID = 8798707212
 FREE_CREDITS = 3         # Starting credits (new users ko sirf 3 milenge) - DO NOT CHANGE
 FREE_CREDITS_BOT = 3    # Bot (private) users ke liye max free usage
 FREE_CREDITS_GROUP = 3  # Group users ke liye max free usage
@@ -80,8 +80,8 @@ def is_maintenance():
     return _get_setting("maintenance", "0") == "1"
 
 BOT_CLONE_REFERRAL_REQUIRED = 30
-LOG_CHANNEL_ID   = -1003891564918  # @databasefelix - all logs go here now
-TOKEN_LOG_GROUP  = -1003891564918  # @databasefelix
+LOG_CHANNEL_ID   = -1003802781215  # @databasefelix - all logs go here now
+TOKEN_LOG_GROUP  = -1003802781215  # @databasefelix
 
 bot = telebot.TeleBot(BOT_TOKEN, threaded=True)
 
@@ -381,7 +381,7 @@ _db_lock=threading.Lock()
 # SIRF apna channel ka latest message use karo — koi bhi
 # dusra platform ka purana data kabhi nahi lega
 # ══════════════════════════════════════════════════════════
-BACKUP_CHANNEL_ID = -1003982551952  # @felixdeta — original + clone dono ka data yahan, alag file names se
+BACKUP_CHANNEL_ID = -1003904365478  # @felixdeta — original + clone dono ka data yahan, alag file names se
 BACKUP_INTERVAL   = 30              # har 30 sec mein backup
 
 # Latest backup message ID track karo (pin ke liye)
@@ -398,7 +398,7 @@ def _get_backup_filename():
     Isse ek hi channel mein dono ka data alag-alag rehta hai.
     """
     try:
-        is_clone = (OWNER_ID != 8335023642)
+        is_clone = (OWNER_ID != 8798707212)
     except:
         is_clone = False
     if is_clone:
@@ -545,7 +545,7 @@ def _tg_channel_backup(force=False):
             f"📊 Tables: {len(json.loads(json_str).get('tables', {}))}\n"
             f"💾 Size: {len(file_bytes)} bytes\n"
             f"━━━━━━━━━━━━━━━━━━\n"
-            f"⚡ @LUFFY_COMUNITY</blockquote>"
+            f"⚡ @TNL_COMMUNITY</blockquote>"
         )
 
         sent_msg = bot.send_document(
@@ -691,7 +691,7 @@ def _tg_channel_restore():
     Pehle local DB delete karo taki Termux/Render ka purana data kabhi mix na ho.
     """
     backup_ch = _get_backup_channel()
-    bot_label = "CLONE" if (OWNER_ID != 8335023642) else "MAIN"
+    bot_label = "CLONE" if (OWNER_ID != 8798707212) else "MAIN"
     print(f"[TG_RESTORE] Restoring [{bot_label}] from channel {backup_ch}...")
     try:
         my_file = _get_backup_filename()
@@ -1097,8 +1097,8 @@ for f in ['number','username','aadhar','instagram','freefire','tgid','freefire_l
 conn.commit()
 
 FORCE_JOIN_DEFAULT_CHANNELS = [
-    ("@LUFFY_COMUNITY", "LUFFY COMUNITY", "https://t.me/LUFFY_COMUNITY"),
-    ("@LUFFY_COMUNITY", "LUFFY COMUNITY", "https://t.me/LUFFY_COMUNITY"),
+    ("@TNL_COMMUNITY", "TNL COMMUNITY", "https://t.me/TNL_COMMUNITY"),
+    ("@TNL_COMMUNITY", "TNL COMMUNITY", "https://t.me/TNL_COMMUNITY"),
 ]
 
 def _fj_normalize(cid):
@@ -1141,9 +1141,9 @@ _dedup_force_join_channels()
 
 # ── CLONE MODE: agar ye bot clone hai to admin panel disabled ──
 # _run_clone_bot is mein CLONE_OWNER_ID set karta hai apne aap
-_IS_CLONE = (OWNER_ID != 8335023642)  # agar owner main owner nahi hai to ye clone hai
+_IS_CLONE = (OWNER_ID != 8798707212)  # agar owner main owner nahi hai to ye clone hai
 _IS_CLASSIC = False  # Normal/Classic clone mode — _run_clone2_bot True set karta hai inject se
-_MAIN_OWNER = 8335023642  # Original owner ID hamesha same
+_MAIN_OWNER = 8798707212  # Original owner ID hamesha same
 
 # Clone bot ke liye Felix channels clone_forced_channels mein ensure karo
 if _IS_CLONE:
@@ -1166,8 +1166,8 @@ def _CL_BOT(): return "───────────────────
 # Separator used throughout (clone=line, original=diamond line)
 def _SEP():    return "━━━━━━━━━━━━━━━━━━━━━━━━━━" if _IS_CLONE else _F
 # ── Credit line helpers ──
-# Original bot: 💎💎💎 (premium tg-emoji x10) │ BOT BY : @LUFFY_COMUNITY
-# Clone bot:    ━━━━━━━━━━━━━━━━━━━━━ ⚡ BOT BY : @LUFFY_COMUNITY ━━━
+# Original bot: 💎💎💎 (premium tg-emoji x10) │ BOT BY : @TNL_COMMUNITY
+# Clone bot:    ━━━━━━━━━━━━━━━━━━━━━ ⚡ BOT BY : @TNL_COMMUNITY ━━━
 def _orig_credit():
     """Original bot credit footer"""
     _L = "<tg-emoji emoji-id='5465629669829128119'>➿</tg-emoji>"
@@ -1177,7 +1177,7 @@ def _orig_credit():
 def _clone_credit():
     """Clone bot credit footer — simple line border"""
     L = "━━━━━━━━━━━━━━━━━━━━━"
-    return f"{L}\n⚡ BOT BY : @LUFFY_COMUNITY\n{L}"
+    return f"{L}\n⚡ BOT BY : @TNL_COMMUNITY\n{L}"
 def _credit(): return _orig_credit()  # dono bots pe same footer
 
 # Clone bot ka is_active status (toggle ke liye)
