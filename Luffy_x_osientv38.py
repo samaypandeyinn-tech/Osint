@@ -1672,7 +1672,7 @@ def redeem_code_fn(uid,code):
 
 def check_blocked_and_reply(uid):
     if is_identifier_blocked(str(uid)):
-        try: bot.send_message(uid,"<blockquote>🚫 <b>ʙʟᴏᴄᴋᴇᴅ</b>\nYou are blocked!\n⚡ @LUFFY_COMUNITY</blockquote>",parse_mode='HTML')
+        try: bot.send_message(uid,"<blockquote>🚫 <b>ʙʟᴏᴄᴋᴇᴅ</b>\nYou are blocked!\n⚡ @TNL_COMMUNITY</blockquote>",parse_mode='HTML')
         except: pass
         return True
     return False
@@ -3283,7 +3283,7 @@ def run_bomber(uid, chat_id, number, msg_id):
              f"{_te('5301176488756788169')} ᴛᴀʀɢᴇᴛ: +91{number}\n"
              f"{pbar(0)}\n\n"
              f"{_te('6179142317446796557')} ꜱᴛᴏᴩ ʙᴏᴍʙᴇʀ ᴅᴀʙᴀᴏ ʙᴀɴᴅ ᴋᴀʀɴᴇ ᴋᴇ ʟɪʏᴇ\n\n"
-             f"{_te('6204263190319081111')} ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ : @LUFFY_49 {_te('6147565374289220368')}"
+             f"{_te('6204263190319081111')} ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ : @FLEXSAMAY {_te('6147565374289220368')}"
              f"</blockquote>"),
             chat_id,msg_id,parse_mode='HTML')
     except: pass
@@ -4484,7 +4484,7 @@ def cmd_start(msg):
                     f"<tg-emoji emoji-id='5188463524568926712'>⚠️</tg-emoji> ᴊᴏɪɴ ʀᴇQᴜɪʀᴇᴅ!\n\n"
                     f" Bᴏᴛ ᴜꜱᴇ ᴋᴀʀɴᴇ ᴋᴇ ʟɪʏᴇ ɴᴇᴇᴄʜᴇ ᴋᴇ ꜱᴀʀᴇ ᴄʜᴀɴɴᴇʟꜱ ᴊᴏɪɴ ᴋᴀʀᴏ:\n\n"
                     f"Jᴏɪɴ ᴋᴀʀɴᴇ ᴋᴇ ʙᴀᴀᴅ <tg-emoji emoji-id='5289934755456889065'>🌟</tg-emoji> <b>I Jᴏɪɴᴇᴅ — Vᴇʀɪꜰʏ</b> ᴅᴀʙᴀᴏ!\n\n"
-                    f"<tg-emoji emoji-id='5888781182249738113'>🆔</tg-emoji> ᴏᴡɴᴇʀ: @LUFFY_49",
+                    f"<tg-emoji emoji-id='5888781182249738113'>🆔</tg-emoji> ᴏᴡɴᴇʀ: @FLEXSAMAY",
                     reply_markup=mk,parse_mode='HTML')
                 return
             # mk=None — bot ko channel access nahi, proceed karo
@@ -4607,9 +4607,9 @@ def cmd_bomb(msg):
     num=re.sub(r'\D','',parts[1])
     if len(num)==12 and num.startswith('91'): num=num[2:]
     if not re.match(r'^[6-9]\d{9}$',num):
-        bot.reply_to(msg,"<blockquote>❌ Invalid! 10-digit Indian number.\n⚡ @LUFFY_COMUNITY</blockquote>",parse_mode='HTML'); return
+        bot.reply_to(msg,"<blockquote>❌ Invalid! 10-digit Indian number.\n⚡ @TNL_COMMUNITY</blockquote>",parse_mode='HTML'); return
     if bomber_jobs.get(uid,{}).get('running',False):
-        bot.reply_to(msg,"<blockquote>💣 Already running! Use /stopbomb first.\n⚡ @LUFFY_COMUNITY</blockquote>",parse_mode='HTML'); return
+        bot.reply_to(msg,"<blockquote>💣 Already running! Use /stopbomb first.\n⚡ @TNL_COMMUNITY</blockquote>",parse_mode='HTML'); return
     sm=bot.reply_to(msg,"<blockquote>" + pbar(0) + "\nꜱᴛᴀʀᴛɪɴɢ...</blockquote>",parse_mode='HTML')
     try: bot.send_chat_action(msg.chat.id,'typing')
     except: pass
@@ -4622,7 +4622,7 @@ def cmd_stopbomb(msg):
     uid=msg.from_user.id
     if _clone_group_guard(msg): return
     if uid in bomber_jobs: bomber_jobs[uid]['running']=False
-    bot.reply_to(msg,"<blockquote>🔴 <b>Bomber stop signal sent!</b>\n⚡ @LUFFY_COMUNITY</blockquote>",parse_mode='HTML')
+    bot.reply_to(msg,"<blockquote>🔴 <b>Bomber stop signal sent!</b>\n⚡ @TNL_COMMUNITY</blockquote>",parse_mode='HTML')
 
 @bot.message_handler(commands=['like'])
 def cmd_like(msg):
@@ -4647,7 +4647,7 @@ def cmd_like(msg):
                           f"🌍 Regions:\n{rlist}\n\n"
                           f"{_F}\n⚡ @LUFFY_COMUNITY\n{_F}</blockquote>"),parse_mode='HTML'); return
     if not _like_check_ratelimit(uid) and not is_admin(uid):
-        bot.reply_to(msg,f"<blockquote>⚠️ Daily limit! Max {LIKE_DAILY_MAX}/day\n⚡ @LUFFY_COMUNITY</blockquote>",parse_mode='HTML'); return
+        bot.reply_to(msg,f"<blockquote>⚠️ Daily limit! Max {LIKE_DAILY_MAX}/day\n⚡ @TNL_COMMUNITY</blockquote>",parse_mode='HTML'); return
     can,rem,cinfo=_like_check_cooldown(uid,ff_uid)
     if not can and not is_admin(uid):
         h=int(rem//3600); mn=int((rem%3600)//60)
@@ -4655,7 +4655,7 @@ def cmd_like(msg):
                           f"❌ This UID is on cooldown!\n🆔 UID: <code>{ff_uid}</code>\n"
                           f"⏱️ Remaining: {h}h {mn}m\n\n"
                           f"💡 Different UID like karo — no cooldown!\n\n"
-                          f"{_F}\n⚡ @LUFFY_COMUNITY\n{_F}</blockquote>"),parse_mode='HTML'); return
+                          f"{_F}\n⚡ @TNL_COMMUNITY\n{_F}</blockquote>"),parse_mode='HTML'); return
     sm=bot.reply_to(msg,"<blockquote>"+pbar(0)+"\nꜱᴛᴀʀᴛɪɴɢ...</blockquote>",parse_mode='HTML')
     try: bot.send_chat_action(msg.chat.id,'typing')
     except: pass
@@ -4671,7 +4671,7 @@ def cmd_viplike(msg):
     uid=msg.from_user.id
     if _clone_group_guard(msg): return
     if uid != _MAIN_OWNER:
-        try: bot.reply_to(msg,"<blockquote>❌ Owner only command!\n⚡ @LUFFY_COMUNITY</blockquote>",parse_mode='HTML')
+        try: bot.reply_to(msg,"<blockquote>❌ Owner only command!\n⚡ @TNL_COMMUNITY</blockquote>",parse_mode='HTML')
         except: pass
         return
     parts=msg.text.split()
@@ -4682,11 +4682,11 @@ def cmd_viplike(msg):
             f"{_CL_BOT()}\n\n"
             f"📌 Usage: <code>/viplike uid</code>\n"
             f"ᴇxᴀᴍᴩʟᴇ: <code>/viplike 1946875262</code>\n\n"
-            f"⚡ ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ : @LUFFY_49</blockquote>"
+            f"⚡ ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ : @FLEXSAMAY</blockquote>"
         ),parse_mode='HTML'); return
     ff_uid=re.sub(r'\D','',parts[1])
     if len(ff_uid)<5:
-        bot.reply_to(msg,"<blockquote>❌ Invalid FF UID!\n⚡ @LUFFY_COMUNITY</blockquote>",parse_mode='HTML'); return
+        bot.reply_to(msg,"<blockquote>❌ Invalid FF UID!\n⚡ @TNL_COMMUNITY</blockquote>",parse_mode='HTML'); return
     sm=bot.reply_to(msg,"<blockquote>"+pbar(0)+"\nꜱᴛᴀʀᴛɪɴɢ...</blockquote>",parse_mode='HTML')
     try: bot.send_chat_action(msg.chat.id,'typing')
     except: pass
@@ -4783,11 +4783,11 @@ def cmd_ffinfo(msg):
             +_CL_BOT()+"\n\n"
             "📌 Usage: <code>/ffinfo uid</code>\n"
             "Example: <code>/ffinfo 1382401870</code>\n\n"
-            "⚡ @LUFFY_COMUNITY</blockquote>"
+            "⚡ @TNL_COMMUNITY</blockquote>"
         ),parse_mode='HTML'); return
     ff_uid=re.sub(r'\D','',parts[1])
     if len(ff_uid)<5:
-        bot.reply_to(msg,"<blockquote>❌ Invalid FF UID!\n⚡ @LUFFY_COMUNITY</blockquote>",parse_mode='HTML'); return
+        bot.reply_to(msg,"<blockquote>❌ Invalid FF UID!\n⚡ @TNL_COMMUNITY</blockquote>",parse_mode='HTML'); return
     user=get_user(uid)
     if not user: add_user(uid,msg.from_user.username or "",msg.from_user.first_name or "User"); user=get_user(uid)
     if not deduct_credit(uid):
@@ -4823,7 +4823,7 @@ def cmd_numinfo(msg):
         bot.reply_to(msg,(f"<blockquote>{_F}\n✭ 𝗡𝗨𝗠𝗕𝗘𝗥 𝗜𝗡𝗙𝗢 𝗖𝗢𝗠𝗠𝗔𝗡𝗗\n{_F}\n\n"
                           f"★ 𝐔𝐬𝐚𝐠𝐞   : <code>/numinfo {{number}}</code>\n"
                           f"★ 𝐄𝐱𝐚𝐦𝐩𝐥𝐞 : <code>/numinfo 9876543210</code>\n\n"
-                          f"{_F}\n👨‍💻 𝐃𝐄𝐕 : @LUFFY_COMUNITY\n{_F}</blockquote>"),parse_mode='HTML'); return
+                          f"{_F}\n👨‍💻 𝐃𝐄𝐕 : @TNL_COMMUNITY\n{_F}</blockquote>"),parse_mode='HTML'); return
     num=re.sub(r'\D','',parts[1])
     if len(num)==12 and num.startswith('91'): num=num[2:]
     if not re.match(r'^[6-9]\d{9}$',num):
@@ -4858,7 +4858,7 @@ def cmd_num2(msg):
         mk = get_channels_keyboard(uid)
         if mk:
             bot.reply_to(msg,
-                "<blockquote>⚠️ <b>ᴊᴏɪɴ ʀᴇꞯᴜɪʀᴇᴅ!</b>\n\nBot use karne ke liye channels join karo!\n\n⚡ @LUFFY_COMUNITY</blockquote>",
+                "<blockquote>⚠️ <b>ᴊᴏɪɴ ʀᴇꞯᴜɪʀᴇᴅ!</b>\n\nBot use karne ke liye channels join karo!\n\n⚡ @TNL_COMMUNITY</blockquote>",
                 reply_markup=mk, parse_mode='HTML')
         return
     parts = msg.text.split()
@@ -4866,12 +4866,12 @@ def cmd_num2(msg):
         bot.reply_to(msg, (f"<blockquote>{_F}\n✭ 𝗡𝗨𝗠𝟮 𝗜𝗡𝗙𝗢 𝗖𝗢𝗠𝗠𝗔𝗡𝗗\n{_F}\n\n"
                            f"★ 𝐔𝐬𝐚𝐠𝐞   : <code>/num2 {{number}}</code>\n"
                            f"★ 𝐄𝐱𝐚𝐦𝐩𝐥𝐞 : <code>/num2 9876543210</code>\n\n"
-                           f"{_F}\n👨‍💻 𝐃𝐄𝐕 : @LUFFY_COMUNITY\n{_F}</blockquote>"), parse_mode='HTML')
+                           f"{_F}\n👨‍💻 𝐃𝐄𝐕 : @TNL_COMMUNITY\n{_F}</blockquote>"), parse_mode='HTML')
         return
     num = re.sub(r'\D', '', parts[1])
     if len(num) == 12 and num.startswith('91'): num = num[2:]
     if not re.match(r'^[6-9]\d{9}$', num):
-        bot.reply_to(msg, "<blockquote>❌ Invalid! 10-digit Indian number daal.\n👨‍💻 𝐃𝐄𝐕 : @LUFFY_COMUNITY</blockquote>", parse_mode='HTML')
+        bot.reply_to(msg, "<blockquote>❌ Invalid! 10-digit Indian number daal.\n👨‍💻 𝐃𝐄𝐕 : @TNL_COMMUNITY</blockquote>", parse_mode='HTML')
         return
     if not deduct_credit(uid):
         txt, mk = no_credits_msg(uid); bot.reply_to(msg, txt, reply_markup=mk, parse_mode='HTML'); return
@@ -4885,7 +4885,7 @@ def cmd_num2(msg):
         d = r.json()
         if not d.get("success"):
             _sf_n2[0]=True
-            try: bot.edit_message_text("<blockquote>❌ Data nahi mila.\n👨‍💻 𝐃𝐄𝐕 : @LUFFY_COMUNITY</blockquote>", msg.chat.id, sm.message_id, parse_mode='HTML')
+            try: bot.edit_message_text("<blockquote>❌ Data nahi mila.\n👨‍💻 𝐃𝐄𝐕 : @TNL_COMMUNITY</blockquote>", msg.chat.id, sm.message_id, parse_mode='HTML')
             except: pass
             refund_credit(uid); return
 
@@ -4970,7 +4970,7 @@ def cmd_usernum(msg):
                           f"★ 𝐔𝐬𝐚𝐠𝐞   : <code>/usernum @username</code>\n"
                           f"          : <code>/usernum 123456789</code>\n"
                           f"★ 𝐄𝐱𝐚𝐦𝐩𝐥𝐞 : <code>/usernum @durov</code>\n\n"
-                          f"{_F}\n👨‍💻 𝐃𝐄𝐕 : @LUFFY_COMUNITY\n{_F}</blockquote>"),parse_mode='HTML'); return
+                          f"{_F}\n👨‍💻 𝐃𝐄𝐕 : @TNL_COMMUNITY\n{_F}</blockquote>"),parse_mode='HTML'); return
     query=parts[1].strip()
     user=get_user(uid)
     if not user: add_user(uid,msg.from_user.username or "",msg.from_user.first_name or "User"); user=get_user(uid)
@@ -5017,7 +5017,7 @@ def cmd_infoff(msg):
             bot.reply_to(msg,(f"<blockquote>{_F}\n✭ /𝗶𝗻𝗳𝗼𝗳𝗳 𝗖𝗢𝗠𝗠𝗔𝗡𝗗\n{_F}\n\n"
                               f"★ 𝐔𝐬𝐚𝐠𝐞   : <code>/infoff {{uid}}</code>\n"
                               f"★ 𝐄𝐱𝐚𝐦𝐩𝐥𝐞 : <code>/infoff 2819649271</code>\n\n"
-                              f"{_F}\n👨‍💻 𝐃𝐄𝐕 : @LUFFY_COMUNITY\n{_F}</blockquote>"),parse_mode='HTML')
+                              f"{_F}\n👨‍💻 𝐃𝐄𝐕 : @TNL_COMMUNITY\n{_F}</blockquote>"),parse_mode='HTML')
         return
     ff_uid=re.sub(r'\D','',parts[1])
     if len(ff_uid)<5: return
@@ -5056,7 +5056,7 @@ def cmd_unlimited(msg):
         "  <code>/unlimited list</code> \u2014 sabhi groups ka status\n\n"
         "\u2605 <b>Example:</b>\n"
         "  <code>/unlimited on -1001234567890</code>\n"+_F+"\n"
-        "\u26a1 @LUFFY_COMUNITY</blockquote>"
+        "\u26a1 @TNL_COMMUNITY</blockquote>"
     )
     if len(parts)<2:
         bot.reply_to(msg,usage,parse_mode='HTML'); return
